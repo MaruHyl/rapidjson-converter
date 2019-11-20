@@ -1,0 +1,2 @@
+# rapidjson-converter
+基于rapidjson的动态ToJson和FromJson，以简化rapidjson的使用
