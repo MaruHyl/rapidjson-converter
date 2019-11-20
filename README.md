@@ -4,7 +4,7 @@
 ## 痛点
 手写ToJson和FromJson过于繁琐，重复体力劳动并且容易出错
 
-```
+```c++
 
 ... ToJson
   writer.Key("ints");
@@ -43,7 +43,7 @@
 
 涉及到嵌套和vector类型，就更加麻烦了，而且字段一多基本上满屏的json转换代码，难以阅读
 
-```
+```c++
 ... ToJson
   writer.Key("tests");
   writer.StartArray();
@@ -105,7 +105,7 @@
 另外就是 `chromium/json-converter` 是基于 `chromium` 自己的json实现，而我则是基于`Tencent/rapidjson`做的.
 
 ## 使用示例
-```
+```c++
 ... 简单struct定义
 
 enum class TestEnum;
@@ -188,3 +188,5 @@ struct NestedTest {
 ## 注意事项
 - `没有严格测试和在严格场景下使用`. 目前在使用和测试中，由于还没有过于复杂的使用场景，所以暂未发现bug，性能测试上在O2以上没有额外开销甚至比手写的转换代码更快
 - 数组只支持`vector<unique_ptr>`的方式
+- header-only lib
+- 目前只能搭配`rapidjson`使用
